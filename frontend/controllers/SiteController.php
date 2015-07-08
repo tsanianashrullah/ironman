@@ -12,6 +12,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use mPDF;
 
 /**
  * Site controller
@@ -168,4 +169,23 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+     public function actionCreate(){
+            $mpdf=new mPDF();
+            $mpdf->WriteHTML($this->renderPartial('index'));
+            $mpdf->Output();
+            exit;
+            //return $this->renderPartial('mpdf');
+        }
+        public function actionSample() {
+            $mpdf = new mPDF;
+            $mpdf->WriteHTML('Sample Text');
+            $mpdf->Output();
+            exit;
+        }
+        public function actionForce(){
+            $mpdf=new mPDF();
+            $mpdf->WriteHTML($this->renderPartial('index'));
+            $mpdf->Output('MyPDF.pdf', 'D');
+            exit;
+        }
 }
