@@ -23,10 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
 
             ['class' => 'yii\grid\SerialColumn'],
-
             'nip',
             'nama',
-            'tanggal_masuk',/*[
+            'tanggal_masuk',[
 
 			'attribute'=>'tanggal_masuk',
 			'value'=>'tanggal_masuk',
@@ -40,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					'format'=>'yyyy-mm-dd']
 				])
 
-			],*/
+			],
             'alamat',
             'logo',
             'jk',
